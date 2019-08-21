@@ -75,6 +75,7 @@ class Calculator_class
     Division(first_number, second_number)
     {
         this.update_current_calculation_result(first_number * second_number);
+        // NOTE : This is multiplication
         return this.current_calculation_result;
     }
 
@@ -95,14 +96,14 @@ function main()
     // TODO: Student implement functionality to keep asking the User for next math operation
     //  until they enter 'x' to exit
 
-
+    // NOTE: your while loop is broken
 
     // Start by just displaying the current total
     console.log(`Total : ${calculator_instance.get_current_calculation_result()}`);
 
     // Get the operation to perform from the User
     current_operation = prompt("Enter the math operation to be performed (ADD),(SUB),(MULTY),(DIV). Press 'x' to exit")
-        .toUpperCase();
+        .toUpperCase(); 
 
 
     while (current_operation !== "X" )
@@ -125,17 +126,22 @@ function main()
         break;
         case "MULTY":
             alert(`New sum Total : ${calculator_instance.Multiply(first_int, second_int)}`);
+            // NOTE : update your prompt
         break;
         case "DIV":
             alert(`New sum Total : ${calculator_instance.Division(first_int, second_int)}`);
+            // NOTE : update your prompt
+
+        // NOTE : no functionality for CLR    
     }
     // Print the final calculation total in console for debugging purposes
     console.log(`Final Total : ${calculator_instance.get_current_calculation_result()}`);
-
+    // NOTE : current cacluation result is incorrect in the console / not being updated 
 
         // Get the operation to perform from the User
         current_operation = prompt("Enter the math operation to be performed (ADD),(SUB),(MULTY),(DIV). Press 'x' to exit")
             .toLowerCase();
+            // NOTE : sending to lower case means you will never break out of your while loop bc you are expecting 'x' not 'X'
 
     }
 
